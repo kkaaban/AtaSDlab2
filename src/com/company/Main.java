@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +13,10 @@ public class Main {
                 System.out.println("Успешно добавлен прямоугольник. Периметр: "+rct.getPerimeter());
             } else System.out.println("Коллизия. Периметр: "+rct.getPerimeter());
         }
+        System.out.println(hashTable.toString());
+        System.out.println("Введите значение площади, меньше которого элементы удалятся: ");
+        Scanner scanner = new Scanner(System.in);
+        hashTable.deleteRangeArea(0, scanner.nextDouble());
         System.out.println(hashTable.toString());
     }
 }

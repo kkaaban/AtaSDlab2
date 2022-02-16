@@ -11,5 +11,6 @@ public class Main {
                 System.out.println("Успешно добавлен прямоугольник. Периметр: "+rct.getPerimeter());
             } else System.out.println("Коллизия. Периметр: "+rct.getPerimeter());
         }
+        System.out.println();
     }
 }

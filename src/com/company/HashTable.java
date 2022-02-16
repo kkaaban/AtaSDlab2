@@ -10,13 +10,39 @@ public class HashTable {
     }
 
     private int hashFunc(Rectangle rect){ return (int)rect.getPerimeter()%size; }
+    private int hashFunc2(Rectangle rect){
+        int key = (int)rect.getPerimeter();
+        int hash = size-3-(key%(size-3));
+        return hash;
+    }
 
     public boolean insert(Rectangle rect){
         int index = hashFunc(rect);
         if (arr[index] == null){
             arr[index] = rect;
             return true;
-        } else return false;
+        } else {
+            if (!arr[index].equals((rect))){
+                return collisions(index, rect);
+            }
+        }
+        return false;
+    }
+
+    private boolean collisions(int index, Rectangle rectangle){
+        int newInd = index;
+        int hash = hashFunc2(rectangle);
+        for (int i = 0; i < arr.length; i++) {
+            newInd = (i*hash+index)%size;
+            if (arr[newInd]==null){
+                arr[newInd] = rectangle;
+                return true;
+            }
+            if (arr[newInd].equals(rectangle)){
+                return false;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -24,7 +50,7 @@ public class HashTable {
         String info = "";
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null){
-                info += "index "+i+"\n"+arr[i].toString()+"\n";
+                info += "index "+i+", "+"периметр: "+arr[i].getPerimeter()+"\n";
             }
         }
         return info;

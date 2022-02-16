@@ -29,6 +29,10 @@ public class HashTable {
         return false;
     }
 
+    public void deleteRangeArea(double from, double to){
+
+    }
+
     private boolean collisions(int index, Rectangle rectangle){
         int newInd = index;
         int hash = hashFunc2(rectangle);

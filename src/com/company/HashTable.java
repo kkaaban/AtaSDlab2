@@ -58,7 +58,7 @@ public class HashTable {
         String info = "";
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null){
-                info += "index "+i+", "+"периметр: "+arr[i].getPerimeter()+"\n";
+                info += "index "+i+", "+"периметр: "+arr[i].getPerimeter()+", площадь: "+arr[i].getArea()+"\n";
             }
         }
         return info;
